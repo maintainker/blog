@@ -14,13 +14,6 @@ const Home: React.FC = () => {
           <p>Thank you for comming here!</p>
         </Title>
       </Header>
-      <Background>
-        <section style={{ color: "white" }}>
-          <div className='inputBox'>
-            <input type='text' />
-          </div>
-        </section>
-      </Background>
     </>
   );
 };
