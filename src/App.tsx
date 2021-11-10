@@ -1,5 +1,6 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
+import Background from "./components/background";
 import { HomeView } from "./pages";
 
 function App() {
@@ -7,7 +8,17 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<HomeView />} />
+          <Route
+            path='/'
+            element={
+              // <Background />}>
+              <>
+                <Outlet />
+              </>
+            }
+          >
+            <Route index element={<HomeView />} />
+          </Route>
           {/* <Route exact path='/signup' component={SignupView} />
       <Route exact path='/otp/create' component={OtpCreateView} />
       <Route exact path='/otp/check' component={OtpCheckView} />
