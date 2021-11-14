@@ -1,10 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import fs from "fs";
 
-fs.readdir("/post", (err, fileList) => {
-  console.log(fileList);
-});
 const Home: React.FC = () => {
   return (
     <>
