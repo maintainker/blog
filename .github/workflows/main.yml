@@ -19,10 +19,16 @@ jobs:
       #     restore-keys: |
       #       ${{ runner.OS }}-build-
       #       ${{ runner.OS }}-
+
       - name: Delete Dependencies
-        run: npm fund \
-          rm -rf ./node_modules \
-          npm cache clean --force
+        run: rm -rf ./node_modules
+
+      - name: Delete Dependencies
+        run: npm cache clean --force
+
+      - name: npm update
+        run: npm fund
+
       - name: Install Dependencies # 의존 파일 설치
         run: npm install
 
