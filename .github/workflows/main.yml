@@ -20,7 +20,8 @@ jobs:
       #       ${{ runner.OS }}-build-
       #       ${{ runner.OS }}-
       - name: Delete Dependencies
-        run: rm -rf ./node_modules \
+        run: npm fund \
+          rm -rf ./node_modules \
           npm cache clean --force
       - name: Install Dependencies # 의존 파일 설치
         run: npm install
