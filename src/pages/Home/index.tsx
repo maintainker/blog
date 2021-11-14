@@ -16,10 +16,10 @@ const Home: React.FC = () => {
 
 export default Home;
 
-const Background = styled.div`
-  background: #121212;
-  min-height: 100vh;
-`;
+// const Background = styled.div`
+//   background: #121212;
+//   min-height: 100vh;
+// `;
 const Header = styled.header`
   background-image: url("/image/post-bg-desk.jpeg");
   background-size: cover;
