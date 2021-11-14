@@ -27,7 +27,7 @@ jobs:
         run: npm cache clean --force
 
       - name: npm update
-        run: npm fund
+        run: npm audit fix
 
       - name: Install Dependencies # 의존 파일 설치
         run: npm install
