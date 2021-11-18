@@ -1,3 +1,15 @@
+---
+layout: post
+title: KVO详解
+subtitle: KVO底层原理及其实现
+date: 2021-03-29
+author: BY
+header-img: img/post-bg-cook.jpg
+catalog: true
+tags:
+  - iOS
+---
+
 ## 前言
 
 作为一名 iOS 开发者，最近面试被问到了`KVO`的问题。其实`KVO`的原理以及`runtiem`的知识，很早之前就有学习和使用了，但是实现的细节都忘记差不多了，故再此重新梳理一下。
@@ -210,7 +222,7 @@ KVO_demo[16813:215245] NSKVONotifying_BYPersonModel ivars:
 
 #### 到此整个`KVO`流程基本上就清晰了：
 
-<!-- ![](https://user-gold-cdn.xitu.io/2018/9/21/165fb89bc6ba9262?w=1878&h=898&f=png&s=150722) -->
+![](https://user-gold-cdn.xitu.io/2018/9/21/165fb89bc6ba9262?w=1878&h=898&f=png&s=150722)
 
 ### 动态生成一个自己的类
 

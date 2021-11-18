@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import CardList from "../../components/home/CardList";
+import { blogList } from "../../constants/list";
 
 const Home: React.FC = () => {
   return (
@@ -10,6 +12,7 @@ const Home: React.FC = () => {
           <p>Thank you for comming here!</p>
         </Title>
       </Header>
+      <CardList info={blogList} />
     </>
   );
 };
