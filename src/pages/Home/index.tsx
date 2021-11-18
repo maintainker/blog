@@ -11,8 +11,8 @@ const Home: React.FC = () => {
           <h1>SSul's Blog</h1>
           <p>Thank you for comming here!</p>
         </Title>
-        <CardList info={blogList} />
       </Header>
+      <CardList info={blogList} />
     </>
   );
 };
