@@ -1,24 +1,9 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import ReactMarkdown from "react-markdown";
+import React from "react";
 import styled from "styled-components";
-import postList from "../../postList";
+import CardList from "../../components/home/CardList";
+import { blogList } from "../../constants/list";
 
-// fs.readdir("/post", (err, fileList) => {
-//   console.log(fileList);
-// });
 const Home: React.FC = () => {
-  const [data, setData] = useState("");
-  const getData = async () => {
-    const response = await axios.get(
-      `https://raw.githubusercontent.com/maintainker/blog/main/public${postList[0].file}`
-    );
-    console.log(response.data);
-    setData(response.data);
-  };
-  useEffect(() => {
-    getData();
-  }, []);
   return (
     <>
       <Header>
@@ -26,13 +11,8 @@ const Home: React.FC = () => {
           <h1>SSul's Blog</h1>
           <p>Thank you for comming here!</p>
         </Title>
+        <CardList info={blogList} />
       </Header>
-      <Container>
-        <div className='content'>
-          <ReactMarkdown>{data}</ReactMarkdown>
-        </div>
-        <Info>123123</Info>
-      </Container>
     </>
   );
 };
@@ -57,18 +37,4 @@ const Title = styled.section`
     font-size: 4em;
     margin: 0;
   }
-`;
-const Container = styled.section`
-  width: calc(100% - 100px);
-  max-width: 1200px;
-  display: flex;
-  justify-content: space-between;
-  margin: 0 auto;
-  .content {
-    width: calc(100% - 230px);
-  }
-`;
-
-const Info = styled.section`
-  width: 220px;
 `;

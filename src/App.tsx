@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
-import Background from "./components/background";
+// import Background from "./components/background";
 import { HomeView } from "./pages";
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route
-            path='/'
+            path="/"
             element={
               // <Background />}>
               <>
