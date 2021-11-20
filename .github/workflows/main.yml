@@ -20,8 +20,8 @@ jobs:
       #       ${{ runner.OS }}-build-
       #       ${{ runner.OS }}-
 
-      - name: node_modules제거 # Node v 확인
-        run: rm -rf ./node_modules
+      # - name: node_modules제거 # Node v 확인
+      #   run: rm -rf ./node_modules
 
       - name: Check Node v # Node v 확인
         run: npx browserslist@latest --update-db
