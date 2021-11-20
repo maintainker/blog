@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import { HomeView } from "./pages";
 import PostView from "./pages/Post";
 
-function App() {
+const App: React.FC = () => {
   return (
     <>
       <BrowserRouter>
@@ -34,6 +34,6 @@ function App() {
       </BrowserRouter>
     </>
   );
-}
+};
 
 export default App;

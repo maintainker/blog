@@ -29,13 +29,13 @@ const PostCard: React.FC<Props> = ({ data }) => {
   const date = new Date(data.date);
   console.log(data);
   const [postData, setPostData] = useState<null | { id: number; post: string }>(
-    null,
+    null
   );
   const getPostData = async () => {
     try {
       if (!postData) {
         const response = await axios.get(
-          `https://raw.githubusercontent.com/maintainker/blog/main/public/post/${data.file}`,
+          `https://raw.githubusercontent.com/maintainker/blog/main/public/post/${data.file}`
         );
         setPostData({ id: data.idx, post: response.data });
       }

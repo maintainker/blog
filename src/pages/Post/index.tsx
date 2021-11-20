@@ -31,7 +31,7 @@ const PostView: React.FC = () => {
           const response = await axios.get(
             `https://raw.githubusercontent.com/maintainker/blog/main/public/post/${
               blogList[Number(id)].file
-            }`,
+            }`
           );
           setData({ isGet: true, post: response.data });
         }
@@ -48,13 +48,12 @@ const PostView: React.FC = () => {
           remarkPlugins={[remarkGfm]}
           rehypePlugins={[rehypeKatex]}
           components={{
-            // Map `h1` (`# heading`) to use `h2`s.
             h1: "h2",
             code: MDStyle.Code,
-            // Rewrite `em`s (`*like so*`) to `i` with a red foreground color.
-            em: ({ node, ...props }) => (
-              <i style={{ color: "red" }} {...props} />
+            ul: ({ ...props }) => (
+              <ul style={{ listStyle: "inside" }} {...props} />
             ),
+            em: ({ ...props }) => <i style={{ color: "red" }} {...props} />,
           }}
         >
           {data.post}
@@ -75,8 +74,4 @@ const Container = styled.section`
   .content {
     width: calc(100% - 230px);
   }
-`;
-
-const Info = styled.section`
-  width: 220px;
 `;

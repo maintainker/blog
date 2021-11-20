@@ -10,7 +10,10 @@ export const Pre: React.FC = ({ children }) => {
 export const Code: React.FC<{ inline?: boolean }> = (props) => {
   if (!props.inline) {
     return (
-      <SyntaxHighlighter language={"javascript"} style={qtcreatorDark}>
+      <SyntaxHighlighter
+        language={"javascript"}
+        style={{ ...qtcreatorDark, display: "flex", alignItems: "center" }}
+      >
         {props.children}
       </SyntaxHighlighter>
     );
