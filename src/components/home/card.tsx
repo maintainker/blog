@@ -48,7 +48,7 @@ const PostCard: React.FC<Props> = ({ data }) => {
       <Link
         onMouseOver={getPostData}
         to={`/${data.idx}`}
-        state={{ post: postData?.post }}
+        state={{ post: postData?.post, imageUrl: data.thumbnail }}
       >
         <h3>{data.title}</h3>
         <p className="subtitle">{data.subtitle}</p>

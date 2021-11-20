@@ -11,17 +11,26 @@ import * as MDStyle from "../../components/posts/markdown";
 const PostView: React.FC = () => {
   const location = useLocation();
   const { id } = useParams();
-  // console.log(params);
   const [data, setData] = useState(() => {
-    if (location.state?.post)
-      return {
-        isGet: true,
-        post: location.state?.post,
-      };
-    return {
+    const thisState: {
+      isGet: boolean;
+      post: string;
+      imageUrl: string;
+    } = {
       isGet: false,
       post: "",
+      imageUrl:
+        "https://raw.githubusercontent.com/maintainker/blog/main/public/image/post-bg-desk.jpeg",
     };
+    if (location.state?.post) {
+      thisState.isGet = true;
+      thisState.post = location.state.post;
+    }
+
+    if (location.state?.imageUrl) {
+      thisState.imageUrl = location.state.imageUrl;
+    }
+    return thisState;
   });
 
   useEffect(() => {
@@ -33,7 +42,7 @@ const PostView: React.FC = () => {
               blogList[Number(id)].file
             }`
           );
-          setData({ isGet: true, post: response.data });
+          setData({ ...data, isGet: true, post: response.data });
         }
       } catch (error) {
         console.log(error);
@@ -42,8 +51,11 @@ const PostView: React.FC = () => {
     getData();
   }, [data.isGet, id]);
   return (
-    <Container>
-      <div className="content">
+    <Content>
+      <Thumbnail>
+        <img src={data.imageUrl} alt="썸네일 이미지" />
+      </Thumbnail>
+      <div className="container">
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
           rehypePlugins={[rehypeKatex]}
@@ -59,19 +71,26 @@ const PostView: React.FC = () => {
           {data.post}
         </ReactMarkdown>
       </div>
-    </Container>
+    </Content>
   );
 };
 
 export default PostView;
-
-const Container = styled.section`
-  width: calc(100% - 100px);
-  max-width: 1200px;
-  display: flex;
-  justify-content: space-between;
-  margin: 0 auto;
-  .content {
-    width: calc(100% - 230px);
+const Thumbnail = styled.section`
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  position: relative;
+  img {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
   }
+`;
+
+const Content = styled.section`
+  width: 100%;
+  padding: 0 0 60px;
 `;
