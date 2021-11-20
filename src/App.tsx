@@ -2,8 +2,9 @@ import React from "react";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 // import Background from "./components/background";
 import { HomeView } from "./pages";
+import PostView from "./pages/Post";
 
-function App() {
+const App: React.FC = () => {
   return (
     <>
       <BrowserRouter>
@@ -18,6 +19,7 @@ function App() {
             }
           >
             <Route index element={<HomeView />} />
+            <Route path=":id" element={<PostView />} />
           </Route>
           {/* <Route exact path='/signup' component={SignupView} />
       <Route exact path='/otp/create' component={OtpCreateView} />
@@ -32,6 +34,6 @@ function App() {
       </BrowserRouter>
     </>
   );
-}
+};
 
 export default App;
