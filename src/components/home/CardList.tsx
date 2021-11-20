@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { BlogInfo, blogList } from "../../constants/list";
-import PostCard from "../posts/card";
+import PostCard from "./card";
 import Sidebar from "./Sidebar";
 
 interface props {
@@ -14,7 +14,7 @@ const CardList: React.FC<props> = ({ info = [] }) => {
       <StyledMain>
         <StyledList>
           {blogList.map((post, idx) => (
-            <PostCard data={post} key={idx} />
+            <PostCard data={{ ...post, idx }} key={idx} />
           ))}
         </StyledList>
         <Sidebar />

@@ -16,13 +16,19 @@ const Profile: React.FC = () => {
 
       <SNSwrapper>
         <li>
-          <VscBold />
+          <a href="https://blog.udrank.com">
+            <VscBold />
+          </a>
         </li>
         <li>
-          <AiOutlineInstagram />
+          <a href="https://www.instagram.com/sul_daily_life/">
+            <AiOutlineInstagram />
+          </a>
         </li>
         <li>
-          <FiGithub />
+          <a href="https://github.com/maintainker">
+            <FiGithub />
+          </a>
         </li>
       </SNSwrapper>
       <Mailto href="mailto:syhwan88@gmail.com">✉️ syhwan88@gmail.com</Mailto>
@@ -51,7 +57,7 @@ const MyComment = styled.p`
 const SNSwrapper = styled.ul`
   display: flex;
   justify-content: space-evenly;
-  li {
+  a {
     width: 46px;
     height: 46px;
     background: #a3a3a3;
